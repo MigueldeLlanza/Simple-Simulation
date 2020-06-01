@@ -42,7 +42,7 @@ def immune_cells(world):
     return list(zip(*np.where(world == 3)))
 
 
-def dead_particles(world):
+def dead_cells(world):
     """
     returns a list with the coordinates of all the dead cells (fours)
     """
@@ -201,7 +201,7 @@ healthy = 200
 infected = 2
 immune = 1
 my_world = world_dimensions(30, 30) # creates a world with m x n dimensions
-my_world = randomize_cells(my_world, healthy, infected, 0)  # number of healthy, infected, and immune cells
+my_world = randomize_cells(my_world, healthy, infected, immune)  # number of healthy, infected, and immune cells
                                                             # randomly distributed in the world
 tuples = list_of_tuples(my_world)  # creates a list of tuples (infected, frame) setting the initial frame to 0
 population = len(list(zip(*(np.where((my_world > 0) & (my_world <= 4)))))) # calculate the whole population of cells
@@ -244,7 +244,7 @@ plt.show()
 p = population
 total_infected = len(list(zip(*(np.where((my_world > 1) & (my_world <= 4))))))  # number of infected
                                                                                 # cells (infected + immune + dead)
-total_dead = len(dead_particles(my_world)) # number of dead cells
+total_dead = len(dead_cells(my_world)) # number of dead cells
 prob_infected = total_infected / p * 100
 mortality = total_dead / total_infected * 100
 
