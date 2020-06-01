@@ -220,8 +220,9 @@ pre_processed_world = p
 # Executing simulation
 fig = plt.figure()
 ax1 = fig.add_subplot(1, 1, 1)
-colors = ['floralwhite', 'lightgreen', 'tomato', 'cornflowerblue', 'darkslategrey']
-bounds = [0, 1, 2, 3, 4]
+colors = ['floralwhite', 'lightgreen', 'tomato', 'cornflowerblue', 'darkslategrey'] # set color for each cell state: 
+                                                                                    # color = [0, 1, 2, 3, 4]
+bounds = [0, 1, 2, 3, 4] # all different states
 cmap = mpl.colors.ListedColormap(colors)
 im = ax1.imshow(my_world, interpolation='none', cmap=cmap)
 axtext = fig.add_axes([0.0, 0.95, 0.1, 0.05])  # add time at the top left corner of the figure
