@@ -163,7 +163,7 @@ def recover(world, tuples, frames):
     or dead
     """
     for t in tuples:
-        if frames - t[1] >= 20:
+        if frames - t[1] >= 20: # set the desired frame threshold from which a cell turns either immune or dead
             ind = t[0]
             chance = np.random.choice([3, 4], size=None, replace=True,
                                       p=[0.9, 0.1])  # set the mortality: 3 = immune, 4 = dead; p[immune, dead]
